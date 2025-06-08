@@ -54,7 +54,7 @@ class CheckoutController extends Controller
                     return redirect()->route('public.cart.index')->with('error', 'Stok tidak mencukupi untuk salah satu produk.');
                 }
 
-                OrderItem::create([
+                OrderItem::create([ //Menyimpan item pesanan ke database dengan detail order, produk, jumlah, dan harga
                     'order_id' => $order->id,
                     'product_id' => $product->id,
                     'quantity' => $details['quantity'],
