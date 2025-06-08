@@ -72,7 +72,7 @@ class AdminController extends Controller
             'role' => ['required', 'in:owner,customer'],
         ]);
 
-        $user = User::create([
+        $user = User::create([ //Membuat user baru dengan data dari request, termasuk hashing password dan set is_admin jika role-nya 'owner'
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
