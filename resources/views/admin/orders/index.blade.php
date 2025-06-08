@@ -92,6 +92,13 @@
                         <td class="actions">
                             {{-- Action buttons like View Details --}}
                             <a href="{{ route('admin.orders.show', $order->id) }}">Lihat Detail</a>
+                             {{-- Tambahkan tombol ubah status --}}
+                            <form action="{{ route('admin.orders.updateStatus', $order->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-success btn-sm">Tandai Selesai</button>
+                            </form>
+
                         </td>
                     </tr>
                 @empty

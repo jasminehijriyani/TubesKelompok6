@@ -27,4 +27,14 @@ class OrderController extends Controller
         // Return the view and pass the order data
         return view('admin.orders.show', compact('order'));
     }
+
+    public function updateStatus($id)
+{
+    $order = Order::findOrFail($id);
+    $order->status = 'Selesai'; // Atau sesuaikan dengan enum/status di tabel kamu
+    $order->save();
+
+    return redirect()->back()->with('success', 'Status pesanan berhasil diperbarui.');
+}
+
 }

@@ -13,6 +13,7 @@ use App\Http\Controllers\CustomerOrderController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
+
 // Homepage
 Route::get('/', function () {
     return view('welcome');
@@ -51,6 +52,8 @@ Route::middleware(['auth', IsAdmin::class])->prefix('admin')->name('admin.')->gr
 
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
     Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+    Route::put('/orders/{order}/update-status', [OrderController::class, 'updateStatus'])->name('orders.updateStatus');
+
 });
 
 // PUBLIC PRODUCT ROUTES
