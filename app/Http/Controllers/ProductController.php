@@ -80,7 +80,7 @@ class ProductController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $data = $request->all();
+        $data = $request->all(); //mengambil semua data dari permintaan (request) dan menyimpannya dalam variabel $data.
 
         if ($request->hasFile('image')) {
             // Delete old image if exists
