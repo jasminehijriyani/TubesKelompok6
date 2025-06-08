@@ -80,7 +80,7 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse ($orders as $order)
+                @forelse ($orders as $order) {{-- -Loop daftar pesanan  --}}
                     <tr>
                         <td>{{ $order->id }}</td> {{-- -Menampilkan ID dari order. --}}
                         <td>{{ $order->created_at->format('Y-m-d H:i') }}</td>
