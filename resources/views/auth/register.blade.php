@@ -84,6 +84,7 @@
     </style>
 </head>
 <body>
+    {{-- -<!-- Container utama untuk membungkus seluruh elemen form registrasi --> --}}
     <div class="register-container">
         <h2>Daftar</h2>
         <form id="registerForm" action="{{ route('register') }}" method="POST">
@@ -128,7 +129,7 @@
                     <option value="owner" {{ old('role') == 'owner' ? 'selected' : '' }}>Pemilik</option>
                 </select>
             </div>
-
+            {{-- -button daftar --}}
             <button type="submit">Daftar</button>
         </form>
         <p>Sudah punya akun? <a href="{{ route('login') }}">Masuk di sini</a></p>
