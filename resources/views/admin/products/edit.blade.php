@@ -152,6 +152,7 @@
             <button type="submit">Update Produk</button>
         </form>
 
+        {{-- -Button kembali ke halaman daftar produk --}}
         <a href="{{ route('admin.products.index') }}" class="back-link">Kembali ke Daftar Produk</a>
 
     </div>
