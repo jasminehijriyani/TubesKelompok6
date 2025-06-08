@@ -93,7 +93,7 @@
     </style>
 </head>
 <body>
-    <div class="login-container">
+    <div class="login-container"> {{-- -Wadah utama untuk form login, diberi kelas 'login-container' agar bisa diatur tampilannya dengan CSS --}}
         <h1 style="text-align: center; font-size: 20px; color: #666; margin-bottom: 8px;">
         Library E-Commerce
         </h1>

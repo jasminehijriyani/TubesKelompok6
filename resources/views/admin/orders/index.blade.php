@@ -82,7 +82,7 @@
             <tbody>
                 @forelse ($orders as $order)
                     <tr>
-                        <td>{{ $order->id }}</td>
+                        <td>{{ $order->id }}</td> {{-- -Menampilkan ID dari order. --}}
                         <td>{{ $order->created_at->format('Y-m-d H:i') }}</td>
                         <td>{{ $order->user->name ?? 'Tamu' }}</td>
                         <td>Rp {{ number_format($order->total, 2, ',', '.') }}</td>
