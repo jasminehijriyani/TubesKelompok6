@@ -178,6 +178,24 @@
 </head>
 <body>
     <div class="container">
+        <body>
+    <div class="container">
+
+        {{-- Flash Message --}}
+        @if (session('success'))
+            <div style="color: green; margin-bottom: 20px;">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div style="color: red; margin-bottom: 20px;">
+                {{ session('error') }}
+            </div>
+        @endif
+
+        {{-- Lanjutkan isi halaman... --}}
+
         @auth
         <div class="top-nav">
             <h1>Keranjang Belanja</h1>
@@ -187,7 +205,7 @@
             </div>
             <div class="user-menu">
                 <a href="{{ route('public.profile') }}">Profil</a>
-                <form action="{{ route('public.logout') }}" method="POST">
+                <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button type="submit">Keluar</button>
                 </form>
@@ -252,10 +270,10 @@
                 @endguest
 
                 @auth
-                    <form action="{{ route('public.checkout.process') }}" method="POST" style="display: inline-block;">
-                        @csrf
-                        <button type="submit">Bayar</button>
-                    </form>
+                    <form action="{{ route('public.checkout.process') }}" method="POST">
+                    @csrf
+                    <button type="submit">Bayar</button>
+                </form>
                 @endauth
             </div>
 

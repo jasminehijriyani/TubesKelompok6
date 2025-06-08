@@ -211,10 +211,11 @@
             @forelse ($products as $product)
             <div class="product-card">
                 @if ($product->image)
-                     <img src="{{ asset('storage/products/' . $product->image) }}" alt="{{ $product->name ?? 'Gambar Produk' }}">
+                    <img src="{{ asset('storage/products/' . $product->image) }}" alt="{{ $product->name ?? 'Gambar Produk' }}" width="150">
                 @else
-                     <img src="{{ asset('placeholder.png') }}" alt="Tidak Ada Gambar"> {{-- Use a placeholder image if no image --}}
+                    <p>Tidak ada gambar.</p>
                 @endif
+
                 <h3>{{ $product->name }}</h3>
                 <p class="price">Rp {{ number_format($product->price, 2, ',', '.') }}</p>
                 
@@ -235,12 +236,13 @@
                     </form>
 
                     {{-- Buy Now Form for Index Page --}}
-                    <form action="{{ route('public.checkout.buy-now') }}" method="POST">
-                        @csrf
-                        <input type="hidden" name="product_id" value="{{ $product->id }}">
-                        <input type="hidden" name="quantity" id="buy_quantity_{{ $product->id }}" value="1">
-                        <button type="submit">Beli Sekarang</button>
-                    </form>
+                    <form action="/checkout/buy-now" method="POST">
+                    @csrf
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                    <input type="hidden" id="buy_quantity_{{ $product->id }}" name="quantity" value="1"> {{-- Tambah ID --}}
+                    <button type="submit">Beli Sekarang</button>
+                </form>
+
                 </div> {{-- End flex container --}}
 
             </div>

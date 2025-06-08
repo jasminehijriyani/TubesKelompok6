@@ -23,7 +23,7 @@ class OrderController extends Controller
     {
         // Load the order items and their related products
         $order->load('items.product');
-
+        $cart = session('cart', []);
         // Return the view and pass the order data
         return view('admin.orders.show', compact('order'));
     }

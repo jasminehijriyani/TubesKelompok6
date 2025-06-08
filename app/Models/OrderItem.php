@@ -10,6 +10,13 @@ class OrderItem extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+    'order_id',
+    'product_id',
+    'quantity',
+    'price',
+];
+
     /**
      * Get the order that owns the order item.
      */

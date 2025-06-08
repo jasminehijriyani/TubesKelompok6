@@ -127,7 +127,7 @@
              <h1>Detail Pesanan</h1>
               <div>
                   <a href="{{ route('public.cart.index') }}">
-                      Keranjang ({{ count($cart) }})
+                      Keranjang ({{ count($cart ?? []) }})
                   </a>
                   <a href="{{ route('public.products.index') }}">Daftar Produk</a>
               </div>

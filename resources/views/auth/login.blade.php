@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masuk - Library E-Commerce</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Masuk Admin - Library E-Commerce</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -26,7 +26,6 @@
             backdrop-filter: blur(5px);
         }
         h2 {
-            text-align: center;
             margin-bottom: 30px;
             color: #333;
         }
@@ -34,7 +33,7 @@
             margin-bottom: 20px;
             text-align: left;
         }
-        .form-group label {
+        label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
@@ -68,7 +67,6 @@
             opacity: 0.9;
         }
         p {
-            text-align: center;
             margin-top: 20px;
             font-size: 0.9rem;
         }
@@ -81,17 +79,31 @@
             color: #2575fc;
             text-decoration: underline;
         }
+        .error-messages {
+            color: red;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .error-text {
+            font-size: 0.8em;
+            margin-top: -10px;
+            margin-bottom: 10px;
+            color: red;
+        }
     </style>
 </head>
 <body>
     <div class="login-container">
+        <h1 style="text-align: center; font-size: 20px; color: #666; margin-bottom: 8px;">
+        Library E-Commerce
+        </h1>
         <h2>Masuk</h2>
-        <form action="{{ route('login') }}" method="POST">
+        <form action="{{ route('admin.login') }}" method="POST">
             @csrf
 
             {{-- Display validation errors --}}
             @if ($errors->any())
-                <div style="color: red; margin-bottom: 15px; text-align: left;">
+                <div class="error-messages">
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -100,21 +112,25 @@
                 </div>
             @endif
 
-            <input type="email" id="email" name="email" placeholder="Alamat Email" required value="{{ old('email') }}">
-            {{-- Display error for email field --}}
-            @error('email')
-                <div style="color: red; font-size: 0.8em; margin-top: -10px; margin-bottom: 10px;">{{ $message }}</div>
-            @enderror
+            <div class="form-group">
+                <label for="email">Alamat Email</label>
+                <input type="email" id="email" name="email" placeholder="Alamat Email" required value="{{ old('email') }}">
+                @error('email')
+                    <div class="error-text">{{ $message }}</div>
+                @enderror
+            </div>
 
-            <input type="password" id="password" name="password" placeholder="Kata Sandi" required>
-            {{-- Display error for password field --}}
-            @error('password')
-                <div style="color: red; font-size: 0.8em; margin-top: -10px; margin-bottom: 10px;">{{ $message }}</div>
-            @enderror
+            <div class="form-group">
+                <label for="password">Kata Sandi</label>
+                <input type="password" id="password" name="password" placeholder="Kata Sandi" required>
+                @error('password')
+                    <div class="error-text">{{ $message }}</div>
+                @enderror
+            </div>
 
             <button type="submit">Masuk</button>
         </form>
-        <p>Belum punya akun? <a href="{{ route('register') }}">Daftar di sini</a></p>
+        <p>Belum punya akun? <a href="{{ route('admin.register') }}">Daftar di sini</a></p>
     </div>
 </body>
-</html> 
+</html>

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class PublicProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display listing of the resource.
      */
     public function index(Request $request)
     {

@@ -12,7 +12,12 @@ class Order extends Model
     use HasFactory;
 
     // Define fillable attributes if needed
-    // protected $fillable = [...];
+    protected $fillable = [
+        'user_id',
+        'total',
+        'status',
+        'shipping_address',
+    ];
 
     /**
      * Get the order items for the order.

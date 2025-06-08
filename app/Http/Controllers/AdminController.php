@@ -11,7 +11,7 @@ class AdminController extends Controller
 {
     public function showLoginForm()
     {
-        return view('auth.login');
+        return view('auth.admin-login');
     }
 
     public function login(Request $request)
@@ -35,10 +35,10 @@ class AdminController extends Controller
             // Check if the authenticated user is an admin
             if (Auth::user()->is_admin) {
                 // Redirect admin to the admin dashboard
-                return redirect()->intended(route('admin.dashboard'));
+                return redirect()->route('admin.dashboard');
             } else {
                 // Redirect non-admin users (customers) to the public products page
-                return redirect()->intended(route('public.products.index'));
+                return redirect()->route('public.products.index');
             }
         }
 
@@ -85,10 +85,10 @@ class AdminController extends Controller
         // Redirect user based on their role after registration and login
         if (Auth::user()->is_admin) {
             // Redirect admin (Owner) to the admin dashboard
-            return redirect()->intended(route('admin.dashboard'));
+            return redirect()->route('admin.dashboard');
         } else {
             // Redirect non-admin users (Pelanggan) to the public products page
-            return redirect()->intended(route('public.products.index'));
+            return redirect()->route('public.products.index');
         }
     }
-} 
+}
