@@ -136,7 +136,7 @@
 
             <button type="submit">Simpan Produk</button>
         </form>
-
+        {{-- -Link untuk kembali ke halaman daftar produk --}}
         <a href="{{ route('admin.products.index') }}" class="back-link">Kembali ke Daftar Produk</a>
 
     </div>
