@@ -43,7 +43,7 @@ class AdminController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Password yang Anda masukkan salah.',
+            'password' => 'Password yang Anda masukkan salah.',
         ])->onlyInput('email');
     }
 

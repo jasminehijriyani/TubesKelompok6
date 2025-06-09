@@ -16,7 +16,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 
 // Homepage
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 // AUTHENTICATION ROUTES (Guest)

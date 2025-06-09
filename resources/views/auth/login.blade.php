@@ -86,7 +86,7 @@
         }
         .error-text {
             font-size: 0.8em;
-            margin-top: -10px;
+            margin-top: 5px; /* biar nggak dempet */
             margin-bottom: 10px;
             color: red;
         }
@@ -95,22 +95,14 @@
 <body>
     <div class="login-container"> {{-- -Wadah utama untuk form login, diberi kelas 'login-container' agar bisa diatur tampilannya dengan CSS --}}
         <h1 style="text-align: center; font-size: 20px; color: #666; margin-bottom: 8px;">
-        Library E-Commerce
+        Bookbuk
         </h1>
         <h2>Masuk</h2>
         <form action="{{ route('admin.login') }}" method="POST">
             @csrf
 
             {{-- Display validation errors --}}
-            @if ($errors->any())
-                <div class="error-messages">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+           
 
             <div class="form-group">
                 <label for="email">Alamat Email</label>
